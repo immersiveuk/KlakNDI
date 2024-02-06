@@ -246,6 +246,17 @@ namespace Klak.Ndi
         }
 
         #endregion
+    
+        public bool IsMuted => _audioSource != null && !_audioSource.enabled;
+
+        public void SetAudioMuted(bool isMuted)
+        {
+            if (_audioSource != null)
+                _audioSource.enabled = !isMuted;
+        }
+
+        public void SetSourceName(string sourceName)
+            => NdiName = sourceName;
     }
 
 } // namespace Klak.Ndi

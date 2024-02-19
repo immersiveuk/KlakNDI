@@ -40,19 +40,47 @@ namespace Klak.Ndi
         #endregion
 
         #region Receiver implementation
+        public bool maintainAspectRatio = true;
+
+        private Vector2 textureSize = Vector2.one;
+
+        public void OnResized()
+        {
+            if (targetRenderer is not SpriteRenderer spriteRenderer) return;
+
+            if (maintainAspectRatio)
+            {
+                float textureAspectRatio = textureSize.x / textureSize.y;
+                float transformAspectRatio = spriteRenderer.transform.localScale.x / spriteRenderer.transform.localScale.y;
+
+                if (textureAspectRatio > transformAspectRatio)
+                    spriteRenderer.size = new Vector2(1, 1 / textureAspectRatio * transformAspectRatio);
+                else
+                    spriteRenderer.size = new Vector2(textureAspectRatio / transformAspectRatio, 1);
+            }
+            else
+            {
+                spriteRenderer.size = Vector2.one;
+            }
+        }
 
         private void DisplayTexture(RenderTexture rt)
         {
+            textureSize = new Vector2(rt.width, rt.height);
+
             // Material property override
             if (targetRenderer != null)
             {
                 targetRenderer.GetPropertyBlock(_override);
                 _override.SetTexture(targetMaterialProperty, rt);
                 targetRenderer.SetPropertyBlock(_override);
+
+                OnResized();
             }
 
             // External texture update
-            if (targetTexture != null) Graphics.Blit(rt, targetTexture);
+            if (targetTexture != null)
+                Graphics.Blit(rt, targetTexture);
         }
 
         void ReceiveVideoTask()

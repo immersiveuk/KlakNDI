@@ -5,16 +5,16 @@
 
 using UnityEngine;
 
-namespace Klak.Ndi {
-
-#if SHOW_MENU_ITEM
-[CreateAssetMenu(fileName = "NdiResources",
-                 menuName = "ScriptableObjects/KlakNDI/NDI Resources")]
-#endif
-public sealed class NdiResources : ScriptableObject
+namespace Klak.Ndi 
 {
-    public ComputeShader encoderCompute;
-    public ComputeShader decoderCompute;
-}
+    #if SHOW_MENU_ITEM
+    [CreateAssetMenu(fileName = "NdiResources",
+                     menuName = "ScriptableObjects/KlakNDI/NDI Resources")]
+    #endif
+    public sealed class NdiResources : ScriptableObject
+    {
+        public ComputeShader encoderCompute;
+        public ComputeShader decoderCompute;
+    }
 
 } // namespace Klak.Ndi

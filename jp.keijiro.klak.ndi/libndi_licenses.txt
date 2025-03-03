@@ -1,16 +1,16 @@
 ********************************************************************************
-NDI
-Copyright (C) 2023 Vizrt NDI AB. All rights reserved.
+NewTek NDI
+Copyright (C) 2014-2022, NewTek, inc.
 ********************************************************************************
 
 The NDI SDK license available at:
-    http://ndi.link/ndisdk_license
+    http://new.tk/ndisdk_license/
 
 The NDI Embedded SDK license is available at 
-    http://ndi.link/ndisdk_embedded_license
+    http://new.tk/ndisdk_embedded_license/
 
 For more information about NDI please visit:
-    http://ndi.video/
+    http://ndi.tv/
 
 This file should be included with all distribution of the binary files included with the NDI SDK.
 

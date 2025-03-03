@@ -6,12 +6,12 @@ KlakNDI
 **KlakNDI** is a Unity plugin that allows sending/receiving video streams
 between several devices using [NDI]®.
 
-[NDI]® (Network Device Interface) is a standard developed by [NewTek], Inc that
-enables applications to deliver video streams via a local area network. Please
-refer to [ndi.tv][NDI] for further information about the technology.
+[NDI]® (Network Device Interface) is a standard developed by [Vizrt] that
+enables applications to deliver video streams over a local area network. Please
+refer to [ndi.video][NDI] for more information about the technology.
 
-[NDI]: https://www.ndi.tv/
-[NewTek]: https://www.newtek.com/
+[NDI]: https://ndi.video/
+[Vizrt]: https://www.vizrt.com
 
 System Requirements
 -------------------
@@ -39,7 +39,7 @@ License
 The NDI library files are provided under the terms of the [NDI SDK license].
 Please review it before using the package in your project.
 
-[NDI SDK license]: http://new.tk/ndisdk_license/
+[NDI SDK license]: http://ndi.link/ndisdk_license
 
 Known Issues and Limitations
 ----------------------------

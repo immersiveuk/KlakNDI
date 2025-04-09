@@ -48,7 +48,7 @@ namespace Klak.Ndi
         {
             if (targetRenderer is not SpriteRenderer spriteRenderer) return;
 
-            if (maintainAspectRatio)
+            if (maintainAspectRatio && !string.IsNullOrEmpty(NdiName))
             {
                 float textureAspectRatio = textureSize.x / textureSize.y;
                 float transformAspectRatio = spriteRenderer.transform.localScale.x / spriteRenderer.transform.localScale.y;

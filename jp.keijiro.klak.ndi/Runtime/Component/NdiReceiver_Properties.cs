@@ -21,6 +21,7 @@ namespace Klak.Ndi
             _ndiName = _ndiNameRuntime = name;
             OnSourceChanged?.Invoke();
             Restart();
+            OnResized();
         }
 
         #endregion

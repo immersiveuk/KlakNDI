@@ -11,9 +11,14 @@ namespace Klak.Ndi
         string _ndiNameRuntime;
         public event Action OnSourceChanged;
 
+        public event Action<bool> OnMutedChanged;
+        internal void FireOnMutedChanged(bool muted) => OnMutedChanged?.Invoke(muted);
+
         public string NdiName
-          { get => _ndiNameRuntime;
-            set => SetNdiName(value); }
+        {
+          get => _ndiNameRuntime;
+          set => SetNdiName(value);
+        }
 
         void SetNdiName(string name)
         {

@@ -281,6 +281,8 @@ namespace Klak.Ndi
         {
             if (_audioSource != null)
                 _audioSource.enabled = !isMuted;
+
+            FireOnMutedChanged(isMuted);
         }
 
         public void SetSourceName(string sourceName)

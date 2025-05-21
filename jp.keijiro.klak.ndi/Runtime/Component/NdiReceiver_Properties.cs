@@ -17,7 +17,7 @@ namespace Klak.Ndi
         public string NdiName
         {
           get => _ndiNameRuntime;
-          set => SetNdiName(value);
+          internal set => SetNdiName(value);
         }
 
         void SetNdiName(string name)

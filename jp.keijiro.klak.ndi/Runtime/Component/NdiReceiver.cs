@@ -8,6 +8,7 @@ using CircularBuffer;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Collections;
+using System;
 
 namespace Klak.Ndi 
 {
@@ -83,6 +84,9 @@ namespace Klak.Ndi
                 Graphics.Blit(rt, targetTexture);
         }
 
+        private bool videoReady = false;
+        public event Action OnVideoReady;
+
         void ReceiveVideoTask()
         {
             // Video frame capturing
@@ -104,6 +108,11 @@ namespace Klak.Ndi
             _recv.FreeVideoFrame(frame);
             DisplayTexture(rt);
 
+            if (!videoReady)
+            {
+                videoReady = true;
+                OnVideoReady?.Invoke();
+            }
         }
 
         void PrepareAudioSource(AudioFrame audioFrame)
@@ -286,7 +295,10 @@ namespace Klak.Ndi
         }
 
         public void SetSourceName(string sourceName)
-            => NdiName = sourceName;
+        {
+            videoReady = false;
+            NdiName = sourceName; 
+        }
     }
 
 } // namespace Klak.Ndi
